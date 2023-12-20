@@ -1,6 +1,6 @@
 # Create a resource group and location variable
 
-resource_group=aks-rg
+resource_group=aks-rgss
 location=eastus
 
 # For our virtual network, let’s define the following variables
@@ -47,7 +47,7 @@ az role assignment create --assignee-object-id $sp_id --role "Managed Identity O
 
 
 # Deploy AKS Cluster:
-az aks create -g $resource_group -n $aks_cluster_name --vm-set-type VirtualMachineScaleSets --node-count 3 --location $location --kubernetes-version $aks_version --network-plugin azure --vnet-subnet-id $subnet_id --service-cidr $aks_service_cidr --dns-service-ip $aks_dns_service_ip --docker-bridge-address 172.17.0.1/16 --max-pods 100 --generate-ssh-keys --enable-managed-identity --assign-identity $resource_id --assign-kubelet-identity $resource_id
+az aks create -g $resource_group -n $aks_cluster_name --vm-set-type VirtualMachineScaleSets --node-count 2 --location $location --kubernetes-version $aks_version --network-plugin azure --vnet-subnet-id $subnet_id --service-cidr $aks_service_cidr --dns-service-ip $aks_dns_service_ip --docker-bridge-address 172.17.0.1/16 --max-pods 100 --generate-ssh-keys --enable-managed-identity --assign-identity $resource_id --assign-kubelet-identity $resource_id
 
 
 # Authenticate to the AKS cluster:

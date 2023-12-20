@@ -11,7 +11,7 @@ az acr login --name <acrName>
 az acr list --resource-group aks-rg --query "[].{acrLoginServer:loginServer}" --output table
 
 # Tag the local copy of the UI Container Image
-docker tag ui:v1.0 acr6543.azurecr.io/ui:v1.0
+docker tag ui:v1.0 acr1468.azurecr.io/ui:v1.0
 
 # Confirm new UI image with acr tag exist
 docker images | grep ui -w
